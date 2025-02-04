@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body class="min-h-100vh bg-stone-200">
+    <header class="flex justify-center items-center w-full bg-zinc-100 py-4">
+      
+       
+            <form action="" class=" w-[90%] md:w-[75%] lg:w-[60%]" id="form">
+                <div class=" w-full flex ">
+
+                    <input class="sm:py-2 w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-lg border border-slate-200 rounded-l-lg px-3 py-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" placeholder="Type here..." id="accountInput">
+
+                    <button type="submit" class="rounded-r-lg bg-stone-700 py-2 px-5 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg  focus:shadow-none  hover:bg-stone-600 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none " type="button" id="searchBtn">
+                    Search
+                    </button>
+                </div>
+            </form>
+            
+        
+        
+    </header>
+    <main class="">
+        <div class="flex justify-center mt-3 mb-6" id="resultCount">
+            
+        </div>
+       
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2  place-items-center px-1 py-2" id="container">
+              
+        </div>
+        <div class="w-full  justify-center hidden py-3" id="pagination">
+            <div class="flex items-center gap-8">
+                <button disabled id="prevBtn" class="rounded-md border border-slate-300 p-2.5 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800  disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                    <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+               
+                <p class="text-slate-600">
+                  Page <strong class="text-slate-800" id="currPage">1</strong> 
+                </p>
+                
+                <button id="nextBtn" class="rounded-md border border-slate-300 p-2.5 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800     disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                    <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+        </div>
+      
+    </main>
+    
+<script type="module" src="main.js"></script>
+</body>
+</html>
