@@ -8,17 +8,17 @@
 
 </head>
 <body class="min-h-100vh bg-stone-200">
-    <header class="flex justify-center items-center w-full bg-zinc-100 py-4"> 
+    <!-- <header class="flex justify-center items-center w-full bg-zinc-100 py-4"> 
         <form action="" class=" w-[90%] md:w-[75%] lg:w-[60%]" id="form">
             <div class=" w-full flex ">
                 <input class="sm:py-2 w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-lg border border-slate-200 rounded-l-lg px-3 py-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" placeholder="Type here..." id="accountInput">
                 <button type="submit" class="rounded-r-lg bg-stone-700 py-2 px-5 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg  focus:shadow-none  hover:bg-stone-600 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none " type="button" id="searchBtn">Search</button>
             </div>
         </form>
-    </header>
+    </header> -->
 
-    <main class="flex flex-col items-center">
-        <div class="container p-5 w-full  max-w-[1050px] ">
+    <main class="flex flex-col items-center pt-10" >
+        <div class=" p-5 w-full  max-w-[1050px]" id="container">
             <div class="infos-container md:flex  gap-x-6  w-full">
                 <div class="image-container">
                     <img src="" class="rounded-lg object-cover object-center md:w-[260px] w-full  min-w-[250px]" alt="" id="avatar">
@@ -36,10 +36,10 @@
                     </div>
                     <div class="pt-2">
                         <ul>
-                            <li class="flex items-center gap-x-2"><i class="fa-solid fa-location-dot text-lg"></i><p class="text-sm" id="userLocationBirth">Queens, NYC</p></li>
+                            <li class="flex items-center gap-x-2 mb-1" id="userLocationBirth"></li>
                         </ul>
                         <ul>
-                            <li class="flex items-center gap-x-2"><i class="fa-solid fa-link text-xs"></i><p class="text-sm text-green-600"><a href="" id="userLink">http://blog.sumtypeofway.com</a></p></li>
+                            <li class="flex items-center gap-x-2 mb-1" id="userLink"></li>
                         </ul>
                     </div>
                     <div class="md:mt-auto">
@@ -51,33 +51,16 @@
                     </div>
                 </div>
             </div>
-            <div class="grid md:grid-cols-2 sm:grid-cols-1 pt-6 gap-x-6 ">
+            <div class="grid md:grid-cols-2 sm:grid-cols-1 pt-6 gap-x-10 ">
 
-                <div class="grid-cols-1  ">
+                <div class="grid-cols-1" id="repos">
                     <h1 class="text-2xl mb-5">Repositories</h1>
-                    <div class="mb-3 border-b-[1px] border-gray-300 pb-5  ">
-                        <div class="">
-                            <p class="text-green-600 text-xl hover:text-green-500 duration-100"><a href="">test_allowlist</a></p>
-                        </div>
-                        <div class="mb-5 mt-2">
-                            <p class="text-sm">Nix grammar for tree-sitter [maintainer=@cstrahan]</p>
-                        </div>
-                        <div class="flex justify-between">
-                           <div class="flex gap-x-5 items-center">
-                            <div class="flex gap-x-1 items-center"><i class="fa-solid fa-star text-sm"></i><p>1</p></div>
-                            <div class="flex gap-x-1 items-center"><i class="fa-solid fa-code-branch text-sm"></i><p>1</p></div>
-                           </div>
-                           <p class="text-sm  text-gray-600">last push 21 days ago</p>
-                        </div>
-                    </div>
+                   
                     
                 </div>
-                <div class="grid-cols-1 ">
+                <div class="grid-cols-1" id="followers">
                     <h1 class="text-2xl mb-5">Followers</h1>
-                    <div class="mb-3 border-b-[1px] border-gray-300 pb-5  flex items-start gap-x-2">
-                       <img src="	https://avatars.githubusercontent.com/u/152?v=4&s=180" alt="" class="w-24 rounded-lg object-cover object-center">
-                       <p class="text-2xl">al3x</p>
-                    </div>
+                   
                 </div>
 
             </div>
@@ -91,7 +74,7 @@
 
 
 </body>
-    <script type="module" src="main.js"></script>
+    <!-- <script type="module" src="main.js"></script> -->
     <script src="https://kit.fontawesome.com/e807b8055e.js" crossorigin="anonymous"></script>
     <script type="module" src="./account.js"></script>
 </html>

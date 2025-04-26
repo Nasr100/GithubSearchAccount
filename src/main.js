@@ -18,17 +18,18 @@ const options = {
   }
 };
 
-
-renderFromLocalStorage();
+  if(getLocalSotrage().length > 0){
+    renderFromLocalStorage();
+  }
 prevBtn.addEventListener('click',()=>{
   prev();
   currPage.textContent = page;
-  clear(containerDiv,resultCountElem);
+  clear(containerDiv);
   render(localStorage.getItem("user"),page);})
 nextBtn.addEventListener("click",()=>{
   next();
   currPage.textContent = page;
-  clear(containerDiv,resultCountElem);
+  clear(containerDiv);
   render(localStorage.getItem("user"),page)
   ;})
 
@@ -40,11 +41,11 @@ form.addEventListener('submit',e=>{
         localStorage.removeItem("user");
       }
       localStorage.setItem("user",accountInput.value)
-      clear(containerDiv,resultCountElem);
+      resultCountElem.innerHTML = "";
+      clear(containerDiv);
       page = 1;
       currPage.textContent = page;
       render(accountInput.value,page);
-
     }else{
       
     }
@@ -67,7 +68,7 @@ async function render(user,page){
             setUrlsToLocalStrorage(user);
           })
           containerDiv.appendChild(elem);  
-          addToLocalStorage(user.avatar_url,user.login);
+          addToLocalStorage(user.avatar_url,user.login,user.url,user.followers_url,user.repos_url);
 
       });
     }
@@ -81,9 +82,8 @@ async function render(user,page){
 }
 
 
-function clear(elem,elem2){
+function clear(elem){
   elem.innerHTML = "";
-  elem2.innerHtml = "";
 }
 
 
@@ -98,7 +98,7 @@ function clear(elem,elem2){
     
 
 function createCard(user){
-  return ` <a href="" >
+  return ` <a href="./account.html" >
                     <div class=" flex flex-col gap-y-5 h-auto max-w-[3000px]  ">
                         <div class="h-auto"> 
                             <img src="${user.avatar_url}" alt="avatar" class="relative inline-block object-cover object-center  rounded-full max-h-[150px] max-w-full "/>
@@ -119,8 +119,8 @@ function next(){
   page = page + 1;
 }
 
-function addToLocalStorage(avatar_url,login){
-  let user = {avatar_url,login}
+function addToLocalStorage(avatar_url,login,url,followers_url,repos_url){
+  let user = {avatar_url,login,url,followers_url,repos_url}
   let users = getLocalSotrage();
   users.push(user);
   localStorage.setItem("list",JSON.stringify(users));
@@ -134,15 +134,13 @@ function clearLocalstorage(){
 
 function renderFromLocalStorage(){
   let users = getLocalSotrage();
-  if(users.length > 0){
-    // resultCountElem.innerHTML = `<div role="alert" class=" relative  w-[200px] p-3 text-sm text-center text-white bg-gradient-to-tr from-slate-800 to-slate-700 rounded-3xl">
-    // <p>found ${localStorage.getItem("accountsCount")} result</p></div> `;
+    resultCountElem.innerHTML = `<div role="alert" class=" relative  w-[200px] p-3 text-sm text-center text-white bg-gradient-to-tr from-slate-800 to-slate-700 rounded-3xl">
+    <p>found ${localStorage.getItem("accountsCount")} result</p></div> `;
     users.forEach(user=>{
       let elem = document.createElement("div");
           elem.className="col-span-1 text-center justify-center flex flex-col items-center hover:bg-gray-50  bg-white shadow-sm border border-slate-200 rounded-lg h-[300px] w-[300px] max-w-full max-h-[300px]";
           elem.innerHTML += createCard(user);
           elem.addEventListener('click',(e)=>{
-            console.log(user)
             setUrlsToLocalStrorage(user);
       })
           containerDiv.appendChild(elem);  
@@ -151,8 +149,8 @@ function renderFromLocalStorage(){
       prevBtn.removeAttribute("disabled")
     }
       paginationElem.classList.remove("hidden");
-      paginationElem.classList.add("flex");
-  }
+      paginationElem.classList.add("flex"); 
+    
 }
 
 function setUrlsToLocalStrorage(user){
